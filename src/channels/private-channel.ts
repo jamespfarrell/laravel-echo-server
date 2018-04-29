@@ -59,7 +59,7 @@ export class PrivateChannel {
 
 			for (let authHost of authHosts) {
 				authHostSelected = authHost;
-	
+
 				if (this.hasMatchingHost(referer, authHost)) {
 					authHostSelected = `${referer.protocol}//${referer.host}`;
 					break;
@@ -106,11 +106,12 @@ export class PrivateChannel {
                     reject({ reason: 'Error sending authentication request.', status: 0 });
                 } else if (response.statusCode !== 200) {
                     if (this.options.devMode) {
-                        Log.warning(`[${new Date().toLocaleTimeString()}] - ${socket.id} could not be authenticated to ${options.form.channel_name}`);
-                        Log.error(response.body);
+                        console.log('!!!!!!!!!!!JAMES ');
+                        Log.warning(`[${new Date().toLocaleTimeString()}] - ${socket.id} B!!!!!  could not be authenticated to ${options.form.channel_name}`);
+                        Log.error(response);
                     }
 
-                    reject({ reason: 'Client can not be authenticated, got HTTP status ' + response.statusCode, status: response.statusCode });
+                    reject({ reason: 'Client !!!can not be authenticated, got HTTP status ' + response.statusCode, status: response.statusCode });
                 } else {
                     if (this.options.devMode) {
                         Log.info(`[${new Date().toLocaleTimeString()}] - ${socket.id} authenticated for: ${options.form.channel_name}`);
